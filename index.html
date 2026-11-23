@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bahasa Inggris Kelas 7 - Nice to Meet You</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #f59e0b;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --success: #16a34a;
+            --danger: #dc2626;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        nav {
+            background-color: var(--card-bg);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        nav a:hover {
+            background-color: #eff6ff;
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.2rem;
+        }
+
+        section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
+        }
+
+        h3 {
+            margin: 1.2rem 0 0.6rem;
+            color: #334155;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            border: 1px solid #e2e8f0;
+            padding: 0.85rem;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: var(--primary-dark);
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        .dialogue-box {
+            background-color: #eff6ff;
+            border-left: 4px solid var(--primary);
+            padding: 1.2rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+        }
+
+        .dialogue-box p {
+            margin-bottom: 0.6rem;
+        }
+
+        .speaker {
+            font-weight: bold;
+            color: var(--primary-dark);
+        }
+
+        .note-box {
+            background-color: #fef3c7;
+            border-left: 4px solid var(--secondary);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 1rem;
+        }
+
+        /* Quiz Styles */
+        .quiz-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .quiz-item p {
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+        }
+
+        .options label {
+            display: block;
+            padding: 0.5rem 0.8rem;
+            margin: 0.3rem 0;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .options label:hover {
+            background-color: #f1f5f9;
+        }
+
+        button.btn-submit {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.8rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button.btn-submit:hover {
+            background-color: var(--primary-dark);
+        }
+
+        #quiz-result {
+            margin-top: 1.2rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.7rem; }
+            section { padding: 1.3rem; }
+            th, td { padding: 0.6rem; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Chapter 1: Nice to Meet You!</h1>
+        <p>Materi Bahasa Inggris Kelas 7 SMP — Greetings, Introductions & Leave-Taking</p>
+    </header>
+
+    <nav>
+        <a href="#greetings">1. Greetings</a>
+        <a href="#introduction">2. Self-Introduction</a>
+        <a href="#leavetaking">3. Leave-Taking</a>
+        <a href="#dialogue">4. Contoh Dialog</a>
+        <a href="#quiz">5. Latihan Soal</a>
+    </nav>
+
+    <div class="container">
+
+        <!-- SECTION 1: GREETINGS -->
+        <section id="greetings">
+            <h2>1. Greetings (Ungkapan Sapaan)</h2>
+            <p>Ungkapan yang digunakan saat pertama kali bertemu atau menyapa seseorang.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Greeting (Sapaan)</th>
+                        <th>Response (Jawaban)</th>
+                        <th>Keterangan Waktu / Situasi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Good morning!</td>
+                        <td>Good morning!</td>
+                        <td>Pagi hari (00.00 – 12.00)</td>
+                    </tr>
+                    <tr>
+                        <td>Good afternoon!</td>
+                        <td>Good afternoon!</td>
+                        <td>Siang/Sore hari (12.00 – 18.00)</td>
+                    </tr>
+                    <tr>
+                        <td>Good evening!</td>
+                        <td>Good evening!</td>
+                        <td>Malam hari saat bertemu (18.00 – 24.00)</td>
+                    </tr>
+                    <tr>
+                        <td>Hello! / Hi!</td>
+                        <td>Hello! / Hi!</td>
+                        <td>Situasi santai (informal)</td>
+                    </tr>
+                    <tr>
+                        <td>How are you?</td>
+                        <td>I'm fine, thank you. / I'm good.</td>
+                        <td>Menanyakan kabar</td>
+                    </tr>
+                    <tr>
+                        <td>How do you do?</td>
+                        <td>How do you do?</td>
+                        <td>Formal, saat baru pertama kali bertemu</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- SECTION 2: INTRODUCTION -->
+        <section id="introduction">
+            <h2>2. Introducing Yourself & Others (Perkenalan)</h2>
+            <p>Ungkapan penting saat memperkenalkan diri kepada teman baru di sekolah:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fungsi</th>
+                        <th>Contoh Kalimat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Memulai perkenalan</td>
+                        <td>Let me introduce myself. / Hi, I would like to introduce myself.</td>
+                    </tr>
+                    <tr>
+                        <td>Menyebutkan nama</td>
+                        <td>My name is Rafi. / I am Rafi. / You can call me Rafi.</td>
+                    </tr>
+                    <tr>
+                        <td>Menyebutkan asal</td>
+                        <td>I am from Bandung. / I come from Medan.</td>
+                    </tr>
+                    <tr>
+                        <td>Menyebutkan tempat tinggal</td>
+                        <td>I live on Jalan Merdeka. / I live in Surabaya.</td>
+                    </tr>
+                    <tr>
+                        <td>Menyebutkan usia & hobi</td>
+                        <td>I am 12 years old. / My hobby is reading books.</td>
+                    </tr>
+                    <tr>
+                        <td>Ungkapan senang bertemu</td>
+                        <td><strong>Nice to meet you!</strong> / Pleased to meet you!</td>
+                    </tr>
+                    <tr>
+                        <td>Respon senang bertemu</td>
+                        <td><strong>Nice to meet you, too!</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note-box">
+                <strong>Catatan Penting:</strong> Gunakan <em>"Nice to meet you"</em> hanya saat <strong>pertama kali</strong> berkenalan dengan seseorang. Jika sudah pernah bertemu sebelumnya, gunakan <em>"Nice to see you again"</em>.
+            </div>
+        </section>
+
+        <!-- SECTION 3: LEAVE TAKING -->
+        <section id="leavetaking">
+            <h2>3. Leave-Taking (Ungkapan Berpamitan)</h2>
+            <p>Ungkapan yang diucapkan ketika hendak berpisah atau mengakhiri percakapan.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Leave-Taking (Pamitan)</th>
+                        <th>Response (Jawaban)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Goodbye! / Bye!</td>
+                        <td>Goodbye! / Bye!</td>
+                    </tr>
+                    <tr>
+                        <td>See you later! / See you tomorrow!</td>
+                        <td>See you!</td>
+                    </tr>
+                    <tr>
+                        <td>Good night!</td>
+                        <td>Good night! (Diucapkan saat berpisah malam hari / hendak tidur)</td>
+                    </tr>
+                    <tr>
+                        <td>Take care!</td>
+                        <td>You too! Thanks.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- SECTION 4: DIALOGUE -->
+        <section id="dialogue">
+            <h2>4. Contoh Percakapan (Dialogue)</h2>
+            <h3>Situasi: Siswa baru berkenalan di halaman sekolah</h3>
+            <div class="dialogue-box">
+                <p><span class="speaker">Dina:</span> Good morning! Are you a new student here?</p>
+                <p><span class="speaker">Bima:</span> Good morning! Yes, I am. My name is Bima. What is your name?</p>
+                <p><span class="speaker">Dina:</span> I'm Dina. Where are you from, Bima?</p>
+                <p><span class="speaker">Bima:</span> I am from Yogyakarta. Now I live on Jalan Diponegoro.</p>
+                <p><span class="speaker">Dina:</span> Welcome to our school, Bima! <strong>Nice to meet you.</strong></p>
+                <p><span class="speaker">Bima:</span> Thank you, Dina. <strong>Nice to meet you, too.</strong></p>
+                <p><span class="speaker">Dina:</span> Oh, the bell is ringing. See you later!</p>
+                <p><span class="speaker">Bima:</span> See you!</p>
+            </div>
+        </section>
+
+        <!-- SECTION 5: INTERACTIVE QUIZ -->
+        <section id="quiz">
+            <h2>5. Mini Quiz (Latihan Pemahaman)</h2>
+            <form id="quiz-form">
+                <div class="quiz-item">
+                    <p>1. Edo: "Hello, Siti. How are you?"<br>Siti: "________, Edo."</p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="a"> Nice to meet you</label>
+                        <label><input type="radio" name="q1" value="b"> I'm fine, thank you</label>
+                        <label><input type="radio" name="q1" value="c"> Goodbye</label>
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <p>2. Rina: "Hi, I'm Rina. Nice to meet you!"<br>Tono: "Hi Rina, I'm Tono. ________"</p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="a"> Nice to meet you, too!</label>
+                        <label><input type="radio" name="q2" value="b"> Good night!</label>
+                        <label><input type="radio" name="q2" value="c"> How do you do?</label>
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <p>3. Sapaan yang tepat saat bertemu guru pada pukul 07.30 pagi adalah...</p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="a"> Good evening</label>
+                        <label><input type="radio" name="q3" value="b"> Good afternoon</label>
+                        <label><input type="radio" name="q3" value="c"> Good morning</label>
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <p>4. Ungkapan yang diucapkan sebelum tidur di malam hari adalah...</p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="a"> Good evening</label>
+                        <label><input type="radio" name="q4" value="b"> Good night</label>
+                        <label><input type="radio" name="q4" value="c"> Good afternoon</label>
+                    </div>
+                </div>
+
+                <button type="button" class="btn-submit" onclick="checkQuiz()">Cek Jawaban</button>
+            </form>
+            <div id="quiz-result"></div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>Materi Pembelajaran Bahasa Inggris Kelas 7 SMP &bull; Dibuat untuk GitHub Pages</p>
+    </footer>
+
+    <script>
+        function checkQuiz() {
+            const answers = {
+                q1: "b",
+                q2: "a",
+                q3: "c",
+                q4: "b"
+            };
+
+            let score = 0;
+            let total = Object.keys(answers).length;
+            let unanswered = 0;
+
+            for (let key in answers) {
+                const selected = document.querySelector(`input[name="${key}"]:checked`);
+                if (!selected) {
+                    unanswered++;
+                } else if (selected.value === answers[key]) {
+                    score++;
+                }
+            }
+
+            const resultBox = document.getElementById("quiz-result");
+            resultBox.style.display = "block";
+
+            if (unanswered > 0) {
+                resultBox.style.backgroundColor = "#fef3c7";
+                resultBox.style.color = "#92400e";
+                resultBox.innerText = "Harap jawab semua pertanyaan terlebih dahulu sebelum mengecek nilai!";
+                return;
+            }
+
+            const finalScore = (score / total) * 100;
+            if (finalScore >= 75) {
+                resultBox.style.backgroundColor = "#dcfce7";
+                resultBox.style.color = "#166534";
+                resultBox.innerText = `Hebat! Nilai kamu: ${finalScore} (${score} dari ${total} benar).`;
+            } else {
+                resultBox.style.backgroundColor = "#fee2e2";
+                resultBox.style.color = "#991b1b";
+                resultBox.innerText = `Nilai kamu: ${finalScore} (${score} dari ${total} benar). Yuk pelajari lagi materinya di atas!`;
+            }
+        }
+    </script>
+</body>
+</html>
